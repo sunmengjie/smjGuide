@@ -97,7 +97,7 @@ static class Registrar implements ImportBeanDefinitionRegistrar, DeterminableImp
 }
 ```
 那么这个类是用来干嘛的呢？我们断点跟一下，看一下registerBeanDefinitions方法是做什么的。
-![](../pics/spring/自动装配4.webp)
+![](../../pics/spring/自动装配4.webp)
 
 这里发现new PackageImport(metadata).getPackageName()返回的返回了当前主程序类的同级以及子级的包组件。
 这也证明了@ComponentScan默认扫描其所在类的package。
@@ -133,7 +133,7 @@ protected AutoConfigurationImportSelector.AutoConfigurationEntry getAutoConfigur
 }
 ```
 这里我们重点看一下getCandidateConfigurations方法，先断点看一下方法的返回值
-![](../pics/spring/自动装配3.webp)
+![](../../pics/spring/自动装配3.webp)
 
 该方法返回的是需要实例化的类信息列表，有了他spring就可以通过类加载器将需要实例化的类加载到jvm中。
 现在我们看一下该方法的代码，发现他是借用了SpringFactoriesLoader类的方法
@@ -171,10 +171,10 @@ private static Map> loadSpringFactories(@Nullable ClassLoader classLoader) {
 }
 ```
 发现他读取了一个名为spring.factories的文件
-![](../pics/spring/自动装配1.webp)
+![](../../pics/spring/自动装配1.webp)
 
 比如我们找一下redis的配置
-![](../pics/spring/自动装配2.webp)
+![](../../pics/spring/自动装配2.webp)
 
 点击去看一下
 ```java
@@ -217,4 +217,4 @@ spring.redis.password=
 
 # 5. 总结
 
-![](../pics/spring/自动装配流程.png)
+![](../../pics/spring/自动装配流程.png)
