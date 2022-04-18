@@ -88,6 +88,7 @@ Date:   Mon Apr 18 22:09:14 2022 +0800
 ## 4. 日常使用中的特殊场景及解决方案
 ### 4.1 撤回push记录
 step 1 ：idea中查看分支历史
+
 step 2 ：reset(hard)
 ![](../../pics/git/git_reset.jpg)
 step 3 : git push -f 强制push
