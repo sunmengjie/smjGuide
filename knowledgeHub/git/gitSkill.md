@@ -98,3 +98,34 @@ step 3 : git push -f 强制push
 
 ### 4.3 撤回merge
 `git merge --abort`
+
+### 4.4 连续多个commit合并
+- step1 查看分支日志
+```yaml
+$ git log --oneline
+4ee51d6 docs(user): update user/README.md
+176ba5d docs(user): update user/README.md
+5e829f8 docs(user): add README.md for user
+f40929f feat(user): add delete user function
+fc70a21 feat(user): add create user function
+7157e9e docs(docs): append test line 'update3' to README.md
+5a26aa2 docs(docs): append test line 'update2' to README.md
+55892fa docs(docs): append test line 'update1' to README.md
+89651d4 docs(doc): add README.md
+```
+- step2 基于rebase 进行commit合并
+```yaml
+git rebase -t <父commit号>   如合并4ee51d6 至 f40929f 父commit号为fc70a21
+
+进入编辑页面 会有命令提示
+根据提示将pick修改为s 即可
+```
+![](../../pics/git/git_rebase.png)
+
+修改 commit msg
+至此本地合并完毕
+- step3 强制push到远端
+`git push -f`
+
+## 5. git 文件结构
+![](../../pics/git/git文件结构.png)
